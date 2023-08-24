@@ -1,0 +1,289 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Fiendish Freddy&#39;s Big Top O&#39; Fun</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.55">
+		<style>
+body {
+  background: #24282f;                                /* main background color in case of no image */
+  font-family: 'Arial';                               /* font arial which should be readable */
+  Height:100%;                                        /* set width to 100% also needed for background */
+  margin:0px;                                         /* hide any margins */
+  background-size: cover;                             /* size background image without distortion along width and height */
+  background-repeat: no-repeat;                       /* no background repeat */
+  Background-attachment:fixed;                        /* needed to make background image behave properly */
+  overflow-y:hidden;                                  /* no normal overflow, only our containers (details & description) will overflow or have scrollbar * /
+}
+ 
+html {
+  height:100%;                                        /* need to set this to 100% to make the background behave propertly */
+}
+
+.title h2 {
+  padding-left: 25px;                                 /* left padding */
+  color: #ccc;                                        /* text color */
+  margin: 0;                                          /* no margins */
+  background-color: black;                            /* black background */
+  vertical-align: middle;                             /* align vertical middle */
+  height: 48px;
+}
+
+.title {
+	width: 100%;                                      /* title container width 100% */
+	grid-column: 1 / span 3;                          /* column 1 but spans 3 */
+    grid-row: 1;                                      /* row 1 */
+	height: 48px;
+}
+.cards {                                              /* empty not used here */
+}
+
+.card {
+	display: grid;                                    /* container which is the grid */
+	grid-template-columns: min-content;               /* size columns to minimum content */
+	grid-template-rows: min-content min-content;      /* size rows to minimum content */
+	height: 100vh;                                    /* 100% viewport height */
+}
+
+.detailstitle{
+  grid-column: 1;                                     /* 1st column */
+  grid-row: 2;                                        /* 2nd row */
+  width: 350px;                                       /* fixed width set to same size as details */
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+}
+
+.details {
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+  color: #ccc;
+  grid-column: 1;                                      /* 1st column */
+  grid-row: 3;                                         /* 3rd row of grid */
+  width: 350px;                                        /* fixed width of details */
+  overflow-y: auto;                                     /* add vertical scrollbar if needed */
+  overflow-x:hidden;                                   /* don't overflow on x axis (no horz scrollbar) */
+ }
+ 
+.detailstitle h3,
+.descriptiontitle h3 {
+	border-bottom: 1px solid #ccc;                     /* titles of description details should have line under it */
+	padding: 5px;                                      /* add some padding */
+	color: #ccc;                                       /* text color of the titles */
+}
+
+.detailstable th, td {
+  border: 0px;                                         /* no borders on td, th elements */
+  color: #ccc;                                         /* details table text color */
+}
+
+.detailstable td {
+  text-align: left;                                    /* align text left */
+  vertical-align: top;                                 /* align top */
+}
+
+.detailstable {
+  width: 100%;                                         /* set to full width of details */
+  padding: 5px;                                        /* add some padding */
+}
+
+.descriptiontitle {
+	grid-column: 2;                                    /* column 2 of grid */
+	grid-row: 2;                                       /* row 2 of grid */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+
+.description {
+	color: #ccc;                                       /* text color */
+	grid-column: 2;                                    /* 2nd column of grid */
+	grid-row: 3;                                       /* 3rd row of grid */
+	overflow-y: auto;                                  /* overflow-y automatic (for adding scrollbar) */
+	overflow-x:hidden;                                 /* prevent horizontal scrollbar */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+.description img {
+	max-width: 100%;                                   /* make sure images don't overflow in width to prevent scrollbars */
+}
+
+.MenuButton {
+  border: none;                                        /* Remove borders */
+  outline: none;                                       /* Remove outline */
+  background-color: #888;                              /* Set a background color */
+  color: #000;                                         /* Text color */
+  padding: 5px;                                        /* Some padding */
+  border-radius: 4px;                                  /* Rounded corners, border */
+  font-size: 20px;                                     /* Increase font size */
+  cursor:pointer;                                         /* Add a mouse pointer on hover */
+  margin-right: 20px;                                  /* to have some space on right side before next element */
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+}
+
+.MenuButton:hover {
+  background-color: #777;                              /* Add a dark-grey background on hover */
+  color: #CCC;                                         /* Text color */
+}
+
+a {
+ text-decoration: none;                                /* no text underline in links */
+}
+a:link {
+  color: #CCC;                                         /* unvisited link color */
+}
+a:visited {
+  color: #CCC;                                         /* visited link color */
+}
+a:hover {
+  color: #EEE;                                         /* mouse over link color */
+  text-decoration: underline;                          /* add text underline in links when mouse over */
+}
+a:active {
+  color: #CCC;                                         /* selected link color */
+}
+
+                                                       /* scrollbars W3C standard that is currently Firefox-only */
+* {
+  scrollbar-width: thin;                               /* small width */
+  scrollbar-color: #888 transparent;                   /* trackbar color + transparant background */
+}
+
+                                                       /* scrollbars on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 12px;                                         /* small width */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;                             /* background color track */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #AAA;                              /* background */
+  border-radius: 20px;                                 /* rounded corner, border */
+  border: 3px solid #888;                              /* add the border */
+}
+
+		</style>
+	</head>
+	<body style="background-image: linear-gradient(to bottom, #24282f, rgba(100,100,100,0.73))">
+		<div class="cards">
+			<div class="card">
+				<div class="title">
+					<h2><button onclick="window.history.back()" class="MenuButton">Back</button> Fiendish Freddy&#39;s Big Top O&#39; Fun</h2>
+				</div>
+				<div class="detailstitle">
+				<H3>Details</H3>
+				</div>
+				<div class="details">
+					<div style="overflow: auto;">
+						<TABLE class="detailstable">
+							<col style="width:50%" />
+							<col style="width:50%" />							<TR>
+								<TD>Playtime</TD>
+								<TD>Not Played</TD>
+							</TR>
+							<TR>
+								<TD>Last Activity</TD>
+								<TD><a href="#quicklink-Never">Never</a> </TD>
+							</TR>
+							<TR>
+								<TD>Added</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_added_descending_name_ascending.html#quicklink-16/08/2023">16/08/2023</a> 12:43:02</TD>
+							</TR>
+							<TR>
+								<TD>Modified</TD>
+								<TD><a href="#quicklink-20/08/2023">20/08/2023</a> 21:15:43</TD>
+							</TR>
+							<TR>
+								<TD>Completion Status</TD>
+								<TD><a href="#quicklink-Not Played">Not Played</a></TD>
+							</TR>
+							<TR>
+								<TD>Library</TD>
+								<TD><a href="#quicklink-Gog">Gog</a></TD>
+							</TR>
+							<TR>
+								<TD>Source</TD>
+								<TD><a href="default%20list%20text_source_ascending_name_ascending.html#quicklink-GOG">GOG</a></TD>
+							</TR>
+							<TR>
+								<TD>Platform</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_platform_ascending_name_ascending.html#quicklink-PC (Windows)">PC (Windows)</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Release Date</TD>
+								<TD><a href="#quicklink-31/12/1989">31/12/1989</a> </TD>
+							</TR>
+							<TR>
+								<TD>Community Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_communityscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Critic Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_criticscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>User Score</TD>
+								<TD><a href="#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Genre</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_genre_ascending_name_ascending.html#quicklink-Arcade">Arcade</a><br/><a href="default%20list%20text%20combobox%20quicklinks_genre_ascending_name_ascending.html#quicklink-Sport">Sport</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Developer</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_developer_ascending_name_ascending.html#quicklink-Gray Matter">Gray Matter</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Publisher</TD>
+								<TD><a href="#quicklink-Mindscape, Inc.">Mindscape, Inc.</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Feature</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_feature_ascending_name_ascending.html#quicklink-Multiplayer">Multiplayer</a><br/><a href="default%20list%20text%20combobox%20quicklinks_feature_ascending_name_ascending.html#quicklink-Single Player">Single Player</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Links</TD>
+								<TD><a href="https://www.twitch.tv/directory/game/Fiendish%20Freddy's%20Big%20Top%20O'%20Fun" target="_blank">Twitch</a><br/><a href="https://www.gog.com/game/fiendish_freddys_big_top_o_fun" target="_blank">GOG</a><br/><a href="https://en.wikipedia.org/wiki/Fiendish_Freddy%27s_Big_Top_o%27_Fun" target="_blank">Wikipedia</a><br/><a href="https://store.steampowered.com/app/2256430" target="_blank">Steam</a><br/><a href="https://www.throwbackentertainment.com" target="_blank">Official</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Tag</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Classic">Classic</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Pixel Graphics">Pixel Graphics</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Retro">Retro</a><br/></TD>
+							</TR>
+						</TABLE>
+					</div>
+				</div>
+				<div class="descriptiontitle">
+					<H3>Description</H3>
+				</div>
+				<div class="description">
+					A corrupt businessman by the name of I.M. Tightwad, whom the circus owes $10,000, arrives on the scene with the intent of demolishing the circus unless it can pay up. He plans to build a set of luxury hotels on the terrain. In a fit of desperation, the ringmaster organises a display of six events to raise money for the doomed circus: diving, juggling, trapeze, knife throwing, tightrope and the human cannonball. The performance in each event is judged by five clown judges, who offer money depending on the quality of the show. The businessman has no intention of letting the circus raise the cash though, and he sends his lackey, the evil Fiendish Freddy, to sabotage the acts.
+<br>Each player is represented by a circus animal (tiger, lion, bear, etc.)
+<br>
+<br>The game was similar to many of the multi-event sports games of the time such as Epyx' California Games, Winter Games and Summer Games. However, Fiendish Freddy differed not only by its surroundings (circus events) offering a comedy element, it also offered a plot and a clear goal of winning $10,000. The six events were thus:
+<br>
+<br>The player is challenged to jump off four diving boards of increasing height into containers of water of decreasing size, beginning with a huge wooden container, and ending in a glass of water. (The third target, however, is a cement block, a possible homage to the Looney Tunes cartoon Big Top Bunny, amongst other things.) Money is earned by completing all four levels, as well as performing a set series of stunts. Freddy attempts to hinder the player by blowing the diver off course with an enormous hair dryer; he appears if the diver fails to complete the stunt in time.
+<br>
+<br>The player must make their way through four juggling sessions of increasing difficulty. Each level brings more balls to juggle, but not just balls - sometimes babies get lost in the mass and must be thrown back into their prams. Of course, Freddy throws a surprise or two into the mix, in the form of bombs, which can be thrown back at Freddy to consequently explode in his face, or missiles which must be juggled as per other objects. Dropping bombs or missiles will cause them to explode and kill the juggler.
+<br>The juggler is allowed five mistakes (marked by dots changing from green to red) before the game is over. Missing five times without dying from a bomb or missile leads an off-stage performer to use a cane to grab the juggler and yank him off screen.
+<br>
+<br>The aim of this section is to proceed from right to left over three levels, jumping from rope to rope. Along the way there are rings of fire and moving targets which have to be mastered. Freddy, as usual, is omnipresent with a jet pack and large pair of scissors to cut your act short if you are too slow.
+<br>Sights on the ground, ranging from a marching band and organ to a trainer with his elephant, are also present as a possible distraction, although it can also be argued that the former are providing the music for the act.
+<br>
+<br>The player must throw knives at balloons on a rotating wheel with a female assistant strapped to it. The assistant is not a target, and will scream if hit, as well as the screen getting covered in blood. There are a limited number of knives available. If the player does not manage to burst all of the balloons before the time or knives run out, it's over. Freddy contributes to the challenge once in a while by throwing smoke grenades in to hinder the player's vision.
+<br>
+<br>The player must walk across three tightropes armed only with a pole to keep balance. Freddy intervenes occasionally with his jet pack, attempting to knock the player off the rope, or with razor blades to cut the player in half. The blades can be deflected with the pole.
+<br>
+<br>The final event involves an attempt by the player to launch him or herself into a target from a cannon. The amount of gunpowder in the cannon is predetermined, and the player has to judge the angle necessary to launch the character into the target. Freddy plays a smaller role in this subgame - he only gets involved if the player takes too long to decide upon the angle, upon which he destroys the cannon.
+<br>
+<br>There are two endings to the game.
+<br>If the player collected enough money to save the circus, the performers get their revenge on Freddy by launching a portly diva with a seesaw, crushing Freddy.
+<br>If the player failed to get enough money, the circus is demolished and a building labeled as Freddy Towers is erected in its place.
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

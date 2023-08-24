@@ -1,3 +1,3 @@
 Quick PoC of my game library using 
-- https://github.com/AB1908/GOG-Galaxy-Export-Script
-- https://github.com/Varstahl/GOG-Galaxy-HTML5-exporter
+- https://playnite.link
+- https://github.com/joyrider3774/Playnite_html_exporter
